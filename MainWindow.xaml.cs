@@ -9,8 +9,8 @@ namespace ChartMaker
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += LoadFromSetting;
         }
 
-        
     }
 }

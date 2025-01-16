@@ -5,41 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChartMaker"
         xmlns:pu="https://opensource.panuon.com/wpf-ui"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
         Title="传统下落式音游通用制谱器" Height="675" Width="900" MinHeight="450" MinWidth="600"
         WindowStartupLocation="CenterScreen">
 
 
     <Grid>
-        <DockPanel>
+        <DockPanel Background="Azure">
             
             <Menu DockPanel.Dock="Top" Height="25" Background="LightGray">
                 <MenuItem Header="_文件" Height="25" Width="Auto" >
-                    <MenuItem Header="_新建" Click="New_Click" Background="AliceBlue"/>
-                    <MenuItem Header="_打开" Click="Open_Click" Background="AliceBlue"/>
-                    <MenuItem Header="_保存" Click="Save_Click" Background="AliceBlue"/>
+                    <MenuItem Header="_新建" Click="New_Click"/>
+                    <MenuItem Header="_打开" Click="Open_Click"/>
+                    <MenuItem Header="_保存" Click="Save_Click"/>
                     <Separator />
-                    <MenuItem Header="_退出" Click="Exit_Click" Background="AliceBlue"/>
+                    <MenuItem Header="_退出" Click="Exit_Click"/>
                 </MenuItem>
 
                 <MenuItem Header="_导出">
-                    
+                    <MenuItem Header="_直接导出" Click="Output_Click"/>
                 </MenuItem>
 
                 <MenuItem Header="_编辑">
-                    <MenuItem Header="_Undo" Click="Undo_Click" Background="AliceBlue"/>
-                    <MenuItem Header="_Redo" Click="Redo_Click" Background="AliceBlue"/>
+                    <MenuItem Header="_撤销" Click="Undo_Click"/>
+                    <MenuItem Header="_重做" Click="Redo_Click"/>
                 </MenuItem>
 
                 <MenuItem Header="_设置">
-                    <MenuItem Header="_yige" Background="AliceBlue"/>
+                    <MenuItem Header="_页面设置"/>
+                    <MenuItem Header="_导出设置"/>
                 </MenuItem>
 
                 <MenuItem Header="_帮助" >
-                    <MenuItem Header="_About" Click="About_Click" Background="AliceBlue"/>
+                    <MenuItem Header="_Github仓库" Click="About_Click"/>
                 </MenuItem>
             </Menu>
-            <TextBox DockPanel.Dock="Right" Margin="100,0,20,0" MinWidth="400" Height="450"/>
+            <hc:TextBox x:Name="Chart_Text" DockPanel.Dock="Right" TextWrapping="Wrap" 
+                AcceptsReturn="True"
+                Padding="5,10,5,5"
+                VerticalContentAlignment="Top"
+                HorizontalContentAlignment="Left"     
+                VerticalScrollBarVisibility="Visible"
+                HorizontalScrollBarVisibility="Disabled"
+                Margin="100,-100,20,0" MinWidth="400" Height="500" TextChanged="TextBox_TextChanged"/>
         </DockPanel>
 
     </Grid>
